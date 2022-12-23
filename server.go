@@ -45,7 +45,6 @@ func main() {
 		}
 	})
 
-
 	http.HandleFunc("/yourget", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
     w.Header().Add("Access-Control-Allow-Credentials", "true")
