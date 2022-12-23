@@ -27,9 +27,6 @@ func main() {
 
 	http.HandleFunc("/valget", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
-    w.Header().Add("Access-Control-Allow-Credentials", "true")
-    w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 
 		value := r.FormValue("value")
 		videoid := r.FormValue("videoid")
@@ -47,10 +44,7 @@ func main() {
 
 	http.HandleFunc("/yourget", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
-    w.Header().Add("Access-Control-Allow-Credentials", "true")
-    w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-
+    
 		videoid := r.FormValue("videoid")
 		userid := r.FormValue("userid")
 		rows, err := db.Query("select rating from datatable where uuid = ? and vidid = ?", userid, videoid)
@@ -70,10 +64,7 @@ func main() {
 
 	http.HandleFunc("/avgget", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
-    w.Header().Add("Access-Control-Allow-Credentials", "true")
-    w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-
+    
 		videoid := r.FormValue("videoid")
 		rows, err := db.Query("select avg(rating) from datatable where vidid = ?", videoid)
 		if err != nil {
@@ -93,10 +84,7 @@ func main() {
 
 	http.HandleFunc("/countget", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
-    w.Header().Add("Access-Control-Allow-Credentials", "true")
-    w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-
+    
 		videoid := r.FormValue("videoid")
 		rows, err := db.Query("select count(*) from datatable where vidid = ?", videoid)
 		if err != nil {
@@ -115,10 +103,7 @@ func main() {
 	
 	http.HandleFunc("/deletedata", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
-    w.Header().Add("Access-Control-Allow-Credentials", "true")
-    w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-
+    
 		userid := r.FormValue("userid")
 		value := r.FormValue("value")
 		if value == "1" {
